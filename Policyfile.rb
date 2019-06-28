@@ -4,13 +4,13 @@
 # https://docs.chef.io/policyfile.html
 
 # A name that describes what the system you're building with Chef does.
-name 'artifactory_oss'
+name 'nexus'
 
 # Where to find external cookbooks:
 default_source :supermarket
 
 # run_list: chef-client will run these recipes in the order specified.
-run_list 'artifactory_oss::default'
+run_list 'nexus::default'
 
 # Specify a custom source for a single cookbook:
-cookbook 'artifactory_oss', path: '.'
+cookbook 'nexus', path: '.'

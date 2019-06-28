@@ -1,9 +1,9 @@
-name 'artifactory_oss'
+name 'nexus'
 maintainer 'The Authors'
 maintainer_email 'you@example.com'
 license 'All Rights Reserved'
-description 'Installs/Configures artifactory_oss'
-long_description 'Installs/Configures artifactory_oss'
+description 'Installs/Configures nexus'
+long_description 'Installs/Configures nexus'
 version '0.1.0'
 chef_version '>= 14.0'
 
