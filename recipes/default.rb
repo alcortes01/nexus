@@ -23,7 +23,7 @@ end
 execute "extract nexus #{nexus_version}" do
   command "tar xzvf /opt/#{nexus_version}-unix.tar.gz && mv #{nexus_version} nexus"
   cwd '/opt'
-  not_if { File.exists?('/opt/nexus') }
+  not_if { File.exist?('/opt/nexus') }
 end
 
 file '/opt/nexus/bin/nexus.rc' do
@@ -31,23 +31,23 @@ file '/opt/nexus/bin/nexus.rc' do
 end
 
 execute 'change ownership nexus' do
-    command 'chown -R nexus /opt/nexus'
-    not_if 'stat -c %U /opt/nexus | grep nexus'
+  command 'chown -R nexus /opt/nexus'
+  not_if 'stat -c %U /opt/nexus | grep nexus'
 end
 
 execute 'change ownership sonatype-work' do
-    command 'chown -R nexus /opt/sonatype-work'
-    not_if 'stat -c %U /opt/sonatype-work | grep nexus'
+  command 'chown -R nexus /opt/sonatype-work'
+  not_if 'stat -c %U /opt/sonatype-work | grep nexus'
 end
 
 template '/etc/systemd/system/nexus.service' do
-    source 'nexus.service.erb'
-    owner 'root'
-    group 'root'
-    mode '0755'
-    action :create
+  source 'nexus.service.erb'
+  owner 'root'
+  group 'root'
+  mode '0755'
+  action :create
 end
 
 service 'nexus' do
-    action [ :enable, :start ]
+  action [ :enable, :start ]
 end

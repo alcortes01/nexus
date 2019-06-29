@@ -8,7 +8,7 @@ version '1.0.0'
 
 chef_version '>= 14.0'
 %w(centos redhat).each do |os|
-    supports os
+  supports os
 end
 
 issues_url 'https://github.com/alcortes01/nexus/issues'

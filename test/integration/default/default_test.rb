@@ -14,27 +14,27 @@ describe directory('/opt/nexus') do
 end
 
 # user created
-describe user 'nexus' do
+describe user('nexus') do
   it { should exist }
 end
 
 # modify nexus.rc
-describe file ('/opt/nexus/bin/nexus.rc') do
-  its ('content') { should match ('run_as_user="nexus"')}
+describe file('/opt/nexus/bin/nexus.rc') do
+  its('content') { should match('run_as_user="nexus"') }
 end
 
 # ownership nexus
-describe directory ('/opt/nexus') do
-  its ('owner') { should eq 'nexus'}
+describe directory('/opt/nexus') do
+  its('owner') { should eq 'nexus' }
 end
 
 # ownership sonatype-work
-describe directory ('/opt/sonatype-work') do
-  its ('owner') { should eq 'nexus'}
+describe directory('/opt/sonatype-work') do
+  its('owner') { should eq 'nexus' }
 end
 
 # create systemd file
-describe file ('/etc/systemd/system/nexus.service') do
+describe file('/etc/systemd/system/nexus.service') do
   it { should exist }
 end
 
@@ -44,4 +44,3 @@ describe service('nexus') do
   it { should be_enabled }
   it { should be_running }
 end
-
